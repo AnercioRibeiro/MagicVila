@@ -6,3 +6,5 @@ obj/Debug/net7.0/
 obj/
 
 .vs/MagicVila/xs/project-cache/
+/.vs
+*.user
