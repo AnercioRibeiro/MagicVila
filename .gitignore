@@ -8,3 +8,4 @@ obj/
 .vs/MagicVila/xs/project-cache/
 /.vs
 *.user
+/log
