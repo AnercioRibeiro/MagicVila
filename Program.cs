@@ -1,5 +1,6 @@
 ﻿
 using MagicVila_VilaAPI.Data;
+using MagicVila_VilaAPI.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -14,6 +15,7 @@ Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("log/vi
 builder.Services.AddDbContext<ApplicationDbContext>(option =>{
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
 });
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 builder.Services.AddControllers(option =>
 {
    // option.ReturnHttpNotAcceptable = true;
