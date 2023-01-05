@@ -1,5 +1,7 @@
 ﻿
 using MagicVila_VilaAPI.Data;
+using MagicVila_VilaAPI.Repository;
+using MagicVila_VilaAPI.Repository.IRepository;
 using MagicVila_VilaAPI.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -15,6 +17,7 @@ Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("log/vi
 builder.Services.AddDbContext<ApplicationDbContext>(option =>{
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
 });
+builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 builder.Services.AddAutoMapper(typeof(MappingConfig));
 builder.Services.AddControllers(option =>
 {
