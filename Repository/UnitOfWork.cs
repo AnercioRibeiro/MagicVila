@@ -10,7 +10,9 @@ namespace MagicVila_VilaAPI.Repository
         {
             _db = db;
             VillaRepository = new VillaRepository(db);
+            VillaNumberRepository = new VillaNumberRepository(db);
         } 
         public IVillaRepository VillaRepository { get; private set; }
+        public IVillaNumberRepository VillaNumberRepository { get; set; }
     }
 }

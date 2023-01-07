@@ -3,6 +3,8 @@
     public interface IUnitOfWork
     {
         IVillaRepository VillaRepository { get; }
+        IVillaNumberRepository VillaNumberRepository { get; }
+
 
     }
 }
