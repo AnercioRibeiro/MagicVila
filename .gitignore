@@ -13,3 +13,4 @@ obj/
 /.vs/MagicVila/xs/project-cache/MagicVila_VilaAPI-Debug.json
 /.vs/MagicVila/xs/UserPrefs.xml
 /MagicVila_Web/bin/Debug/net7.0
+/Utility/bin/Debug/net7.0
