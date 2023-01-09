@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagicVila_VilaAPI", "MagicVila_API\MagicVila_VilaAPI.csproj", "{A89FDF72-5904-483C-B0F9-2ED10D568393}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagicVila_API", "MagicVila_API\MagicVila_API.csproj", "{A89FDF72-5904-483C-B0F9-2ED10D568393}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
