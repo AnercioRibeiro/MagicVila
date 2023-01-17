@@ -24,7 +24,7 @@ namespace MagicVila_VilaAPI.Controllers
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            this._response = new();
+            _response = new();
         }
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -49,7 +49,7 @@ namespace MagicVila_VilaAPI.Controllers
             }
             return _response;
         }
-        [HttpGet("id:int", Name = "GetVilla")]
+        [HttpGet("{id:int}", Name = "GetVilla")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -70,11 +70,7 @@ namespace MagicVila_VilaAPI.Controllers
                 if (villa == null)
                 {
                     _response.StatusCode = HttpStatusCode.NotFound;
-                    _response.IsSuccess = false;
-                    _response.ErrorMessages = new List<string>()
-                    {
-                        "Id not founded"
-                    };
+                   
                     return NotFound(_response);
                 }
                 _response.Result = _mapper.Map<VillaDTO>(villa);

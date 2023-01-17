@@ -10,7 +10,13 @@ builder.Services.AddAutoMapper(typeof(MappingConfig));
 
 builder.Services.AddHttpClient<IVillaService, VillaService>();
 builder.Services.AddScoped<IVillaService, VillaService>();
+var handler = new HttpClientHandler();
 
+handler.ServerCertificateCustomValidationCallback +=
+                (sender, certificate, chain, errors) =>
+                {
+                    return true;
+                };
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
