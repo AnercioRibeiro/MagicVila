@@ -52,20 +52,20 @@ namespace MagicVila_VilaAPI.Controllers
 
             }
 
-            [HttpGet("{id:int}", Name = "GetVillaNumber")]
+            [HttpGet("{villaNo:int}", Name = "GetVillaNumber")]
             [ProducesResponseType(StatusCodes.Status200OK)]
             [ProducesResponseType(StatusCodes.Status400BadRequest)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]
-            public async Task<ActionResult<APIResponse>> GetVillaNumber(int id)
+            public async Task<ActionResult<APIResponse>> GetVillaNumber(int villaNo)
             {
                 try
                 {
-                    if (id == 0)
+                    if (villaNo == 0)
                     {
                         _response.StatusCode = HttpStatusCode.BadRequest;
                         return BadRequest(_response);
                     }
-                    var villaNumber = await _unitOfWork.VillaNumberRepository.GetAsync(u => u.VillaNo == id);
+                    var villaNumber = await _unitOfWork.VillaNumberRepository.GetAsync(u => u.VillaNo == villaNo);
                     if (villaNumber == null)
                     {
                         _response.StatusCode = HttpStatusCode.NotFound;
@@ -128,7 +128,7 @@ namespace MagicVila_VilaAPI.Controllers
             [ProducesResponseType(StatusCodes.Status200OK)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]
             [ProducesResponseType(StatusCodes.Status400BadRequest)]
-            [HttpDelete("{id:int}", Name = "DeleteVillaNumber")]
+            [HttpDelete("{villaNo:int}", Name = "DeleteVillaNumber")]
             public async Task<ActionResult<APIResponse>> DeleteVillaNumber(int id)
             {
                 try
@@ -156,14 +156,14 @@ namespace MagicVila_VilaAPI.Controllers
                 return _response;
             }
 
-            [HttpPut("{id:int}", Name = "UpdateVillaNumber")]
+            [HttpPut("{villaNo:int}", Name = "UpdateVillaNumber")]
             [ProducesResponseType(StatusCodes.Status200OK)]
             [ProducesResponseType(StatusCodes.Status400BadRequest)]
-            public async Task<ActionResult<APIResponse>> UpdateVillaNumber(int id, [FromBody] VillaNumberUpdateDTO updateDTO)
+            public async Task<ActionResult<APIResponse>> UpdateVillaNumber(int villaNo, [FromBody] VillaNumberUpdateDTO updateDTO)
             {
                 try
                 {
-                    if (updateDTO == null || id != updateDTO.VillaNo)
+                    if (updateDTO == null || villaNo != updateDTO.VillaNo)
                     {
                         return BadRequest();
                     }
@@ -187,6 +187,8 @@ namespace MagicVila_VilaAPI.Controllers
                 }
                 return _response;
             }
+
+
 
 
         }

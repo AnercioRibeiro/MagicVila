@@ -1,10 +1,11 @@
-﻿@model MagicVila_Web.Models.ViewModels.VillaNumberCreateVM
+﻿@model MagicVila_Web.Models.ViewModels.VillaNumberUpdateVM
 
 
-<form asp-action="Create">
+<form asp-action="Update">
     <br />
     <div class="container border p-3">
-        <h1 class="text-primary">Create Villa</h1>
+        <h1 class="text-primary">Update VillaNumber</h1>
+        <input hidden asp-for="VillaNumber.VillaNo" />
         <hr />
 
         <div class="row">
@@ -33,12 +34,12 @@
                 <textarea asp-for="VillaNumber.SpecialDetails" class="form-control"></textarea>
                 <span asp-validation-for="VillaNumber.SpecialDetails" class="text-danger"></span>
             </div>
-            
+
             <div class="col-5 offset-2">
                 <a asp-action="Index" asp-controller="VillaNumber" class="btn-primary btn form-control">Back to List</a>
             </div>
             <div class="col-5">
-                <input type="submit" value="Create" class="btn btn-success form-control" />
+                <input type="submit" value="Update" class="btn btn-success form-control" />
             </div>
         </div>
     </div>
