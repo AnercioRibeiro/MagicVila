@@ -129,15 +129,15 @@ namespace MagicVila_VilaAPI.Controllers
             [ProducesResponseType(StatusCodes.Status404NotFound)]
             [ProducesResponseType(StatusCodes.Status400BadRequest)]
             [HttpDelete("{villaNo:int}", Name = "DeleteVillaNumber")]
-            public async Task<ActionResult<APIResponse>> DeleteVillaNumber(int id)
+            public async Task<ActionResult<APIResponse>> DeleteVillaNumber(int villaNo)
             {
                 try
                 {
-                    if (id == 0)
+                    if (villaNo == 0)
                     {
                         return BadRequest();
                     }
-                    var villaNumber = await _unitOfWork.VillaNumberRepository.GetAsync(u => u.VillaNo == id);
+                    var villaNumber = await _unitOfWork.VillaNumberRepository.GetAsync(u => u.VillaNo == villaNo);
                     if (villaNumber == null)
                     {
                         return NotFound();

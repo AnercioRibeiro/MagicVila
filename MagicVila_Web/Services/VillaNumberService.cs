@@ -29,7 +29,7 @@ namespace MagicVila_Web.Services
             return SendAsync<T>(new APIRequest()
             {
                 ApiType = SD.ApiType.DELETE,
-                Url = villaNumberVillaUrl + "/api/villaNumberAPI" + id
+                Url = villaNumberVillaUrl + "/api/villaNumberAPI/" + id
             });
         }
 
