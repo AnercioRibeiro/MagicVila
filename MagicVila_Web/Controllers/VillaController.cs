@@ -43,9 +43,11 @@ namespace MagicVila_Web.Controllers
                 var response = await _villaService.CreateAsync<APIResponse>(model);
                 if (response !=null && response.IsSuccess)
                 {
+                    TempData["success"] = "Villa created successfully";
                     return RedirectToAction(nameof(Index));
                 }
             }
+            TempData["error"] = "An error occored while trying to create the villa";
             return View(model);
         }
 
@@ -70,11 +72,12 @@ namespace MagicVila_Web.Controllers
                 var response = await _villaService.UpdateAsync<APIResponse>(model);
                 if (response != null && response.IsSuccess)
                 {
+                    TempData["success"] = "Villa updated successfully";
                     return RedirectToAction(nameof(Index));
                 }
 
             }
-          
+            TempData["error"] = "An error occored while trying to update the villa";
             return View(model);
         }
 
@@ -98,11 +101,10 @@ namespace MagicVila_Web.Controllers
                 var response = await _villaService.DeleteAsync<APIResponse>(model.Id);
                 if (response != null && response.IsSuccess)
                 {
-                    return RedirectToAction(nameof(Index));
+                TempData["success"] = "Villa deleted";
+                return RedirectToAction(nameof(Index));
                 }
-
-            
-
+                TempData["error"] = "An error occored while trying to delete the villa";
             return View(model);
         }
     }
